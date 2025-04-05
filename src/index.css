@@ -12,5 +12,6 @@
   --color-andygold: #a99767;
   --color-andybrown: #210F04;
   --color-andyred: #690500;
-
+  --breakpoint-3xl: 144rem;
+  
 }
