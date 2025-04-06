@@ -5,9 +5,8 @@ const servicesOffered = features.map((feature, idx) => {
   return <FeatureCard feature={feature} key={idx} />;
 });
 
-const FeatureSection = (props) => {
-  const { feature } = props;
-
+const FeatureSection = () => {
+ 
   return (
     <div className="flex flex-col items-center justify-center bg-andyblue">
       <div className="text-3xl font-ubuntu text-white text-center mt-10 md:text-5xl 3xl:text-6xl">
