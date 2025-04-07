@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.yoursite.com/</loc> <!-- Homepage -->
+    <lastmod>2025-04-01</lastmod> <!-- Adjust the date as needed -->
+    <changefreq>daily</changefreq> <!-- Adjust frequency if needed -->
+    <priority>1.0</priority> <!-- Homepage usually has the highest priority -->
+  </url>
+
+  <url>
+    <loc>https://www.yoursite.com/about</loc> <!-- About page -->
+    <lastmod>2025-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.yoursite.com/services</loc> <!-- Services page -->
+    <lastmod>2025-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.yoursite.com/contact</loc> <!-- Contact page -->
+    <lastmod>2025-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.yoursite.com/terms-and-services</loc> <!-- Terms and Services page -->
+    <lastmod>2025-04-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>
