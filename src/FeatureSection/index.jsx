@@ -1,5 +1,5 @@
 import FeatureCard from "./FeatureCard";
-import features from "../demoData";
+import features from "../servicesOfferedData";
 
 const servicesOffered = features.map((feature, idx) => {
   return <FeatureCard feature={feature} key={idx} />;
