@@ -1,3 +1,5 @@
 
+### Quick Start 
 
-yooo
+Not much to say, but
+npm install -> npm run dev
