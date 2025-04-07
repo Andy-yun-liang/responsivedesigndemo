@@ -1,4 +1,4 @@
-import Framework from "./assets/framework.svg"
+import Framework from "../../assets/framework.svg"
 
 
 const FrameworkChart = () => {

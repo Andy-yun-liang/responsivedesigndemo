@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="mt-3">© 2025 Inforium™. All rights reserved</div>
           <div>by Andy Liang</div>
           <div className="mt-6">
-            <a>Sitemap</a>
+            <a href = "/sitemap.xml">Sitemap</a>
             <span className="mx-2">|</span>
             <a>Terms of Service</a>
           </div>
@@ -39,7 +39,7 @@ const Footer = () => {
             CONTACT
           </h1>
           <div className="mt-3">Questions or feedback?</div>
-          <span className = "text-sky-300" >AndysEmail@gmail.com</span>
+          <span className = "text-sky-300" >Andyliang137@gmail.com</span>
         </div>
       </div>
     </div>
