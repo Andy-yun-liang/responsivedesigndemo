@@ -36,7 +36,7 @@ const Navbar = () => {
         </div>
       </nav>
       {mobileMenu && (
-        <div className="z-10 flex flex-col fixed top-0 right-0 pt-10 pb-4 rounded-bl-lg bg-zinc-50 text-andygold border-andygold border-b-2 border-l-2 ">
+        <div className="z-100 flex flex-col fixed top-0 right-0 pt-10 pb-4 rounded-bl-lg bg-zinc-50 text-andygold border-andygold border-b-2 border-l-2 ">
           <Link to = "/about" className="flex pl-6 pr-20 py-4 text-lg">ABOUT</Link>
           <Link to = "/services" className="flex pl-6 pr-20 py-4 text-lg">SERVICES</Link>
           <Link to = "/contact" className="flex pl-6 pr-20 py-4 text-lg">CONTACT</Link>
