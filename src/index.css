@@ -3,12 +3,17 @@
 
 
 @import "tailwindcss";
+@plugin "daisyui" {
 
+  themes: light --default;
+
+}
 
 @theme {
   --font-ubuntu : "Ubuntu", sans-serif;
   --font-roboto : "Roboto", sans-serif;
   --color-andyblue: #26547C;
+  --color-andydarkblue: #164975;
   --color-andygold: #a99767;
   --color-andybrown: #210F04;
   --color-andyred: #690500;

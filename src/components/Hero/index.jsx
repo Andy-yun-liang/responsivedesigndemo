@@ -1,0 +1,43 @@
+import hero from "../../assets/heroImage.jpg";
+
+const Hero = () => {
+  return (
+    <div className="hero bg-base-200 min-h-[75vh]">
+      <div className="hero-content flex-col lg:flex-row">
+        <div className=" mx-10 px-10">
+          <h1 className="text-3xl lg:text-4xl 3xl:text-5xl font-bold mb-4">
+            Your Tech Partner for Smarter, Simpler Growth
+          </h1>
+          <p className="text-lg md:text-xl mb-6 max-w-2xl mx-auto">
+            <em>
+              Websites, Dashboards, Automations & Apps — without the headache
+            </em>
+          </p>
+
+          <p>
+            {" "}
+            Focus on growing your business. We'll take care of the tech, so you don’t have to
+          </p>
+          
+          <div className = "flex flex-col items-end pr-10 pt-4">
+          <button className="rounded-lg bg-andyblue py-7 px-5 my-3 hover:bg-andydarkblue">
+            <p className = "text-md text-white">I Want to See If Your Services Fit — Take the Quiz</p>
+          </button>
+
+          <p className="text-sm font-bold">
+            We respect your privacy and won't share your data.
+          </p>
+          </div>
+        </div>
+
+        <img
+          className="hidden lg:block w-[450px] rounded-xl shadow-xl"
+          src={hero}
+        />
+        
+      </div>
+    </div>
+  );
+};
+
+export default Hero;
