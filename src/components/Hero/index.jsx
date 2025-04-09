@@ -2,7 +2,7 @@ import hero from "../../assets/heroImage.jpg";
 
 const Hero = () => {
   return (
-    <div className="relative min-h-[75vh] w-full">
+    <div className="relative min-h-[75vh] w-full ">
       
       <div
         className="lg:hidden absolute inset-0 bg-cover bg-center"
@@ -13,8 +13,8 @@ const Hero = () => {
       </div>
 
       
-      <div className="relative z-10 hero bg-base-200/80 min-h-[75vh]">
-        <div className="hero-content flex-col lg:flex-row">
+      <div className="relative z-10 hero bg-base-200/80 min-h-[75vh] ">
+        <div className="sm:hero-content flex-col lg:flex-row ">
           <div className="mx-10 px-10 text-black">
             <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl 3xl:text-5xl font-bold mb-4">
               Your Tech Partner for Smarter, Simpler Growth
@@ -33,15 +33,15 @@ const Hero = () => {
               <button className="rounded-lg bg-andyblue py-7 px-5 my-3 hover:bg-andydarkblue">
                 <p className="text-md text-white">I Want to See If Your Services Fit — Take the Quiz</p>
               </button>
-              <p className="text-sm font-bold">
-                We respect your privacy and won't share your data.
+              <p className="text-sm font-bold px-2">
+                We respect your privacy and won't share your data
               </p>
             </div>
           </div>
 
          
           <img
-            className="hidden lg:block w-[450px] rounded-xl shadow-xl"
+            className="hidden lg:block w-[460px] rounded-xl shadow-xl"
             src={hero}
             alt="Hero"
           />
