@@ -23,6 +23,7 @@ const Navbar = () => {
             <Link to = "/contact" className="text-xl font-medium mx-4 hover:text-andygold transition-colors duration-500 ease-in-out">
               CONTACT
             </Link>
+            
           </div>
 
           <button
