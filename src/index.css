@@ -10,13 +10,27 @@
 }
 
 @theme {
-  --font-ubuntu : "Ubuntu", sans-serif;
-  --font-roboto : "Roboto", sans-serif;
+  --font-ubuntu: "Ubuntu", sans-serif;
+  --font-roboto: "Roboto", sans-serif;
   --color-andyblue: #26547C;
   --color-andydarkblue: #1B3D5C;
   --color-andygold: #a99767;
   --color-andybrown: #210F04;
   --color-andyred: #690500;
   --breakpoint-3xl: 144rem;
-  
+
+
+  --animate-fade-in-left: fade-in-left 0.9s ease-out forwards;
+
+  @keyframes fade-in-left {
+    0% {
+      opacity: 0;
+      transform: translateX(-390px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+      color: #26547C;
+    }
+  }
 }

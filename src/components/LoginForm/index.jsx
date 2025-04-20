@@ -1,31 +1,32 @@
-
-import { useState } from "react";
+import { useState,useContext } from "react";
 import { getData } from "dataService/mainDataServices";
+import SessionContext from "Contexts/SessionContext";
+
 const LoginForm = () => {
+  const [errorMsg, setErrorMsg] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading,setIsLoading] = useState(false);
+  const sessionContext = useContext(SessionContext);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setIsLoading(true)
+    const response = await getData("POST", "/auth/login", {
+      username,
+      password,
+    });
+    
+    if(response.status === 200){
+      setErrorMsg("")
+      sessionContext.signIn(response.data.access_token)
+      setIsLoading(false)
+    }else{
+        setIsLoading(false)
+        setErrorMsg(response.data.detail)
 
-    const formBody = new URLSearchParams();
-    formBody.append("username", username);
-    formBody.append("password", password);
-
-    // You can now make the API request here with your helper function
-    const response = await getData("POST", "/auth/login", formBody);
-
-    // Reset form fields after submit
-    setUsername("");
-    setPassword("");
-
-    // Handle response (e.g., store token, display error, etc.)
-    if (response && response.access_token) {
-      localStorage.setItem("access_token", response.access_token);
-      console.log("Login successful!");
-    } else {
-      console.error("Login failed");
     }
+    
   };
 
   return (
@@ -34,7 +35,8 @@ const LoginForm = () => {
         className="flex flex-col gap-4 border border-zinc-200 bg-zinc-50 p-6 rounded-xl shadow-md w-80"
         onSubmit={handleSubmit}
       >
-        <h2 className="text-2xl font-semibold text-start mb-2">Admin Login</h2>
+        <div className = "mb-2">
+
 
         <div className="flex flex-col">
           <label
@@ -51,8 +53,9 @@ const LoginForm = () => {
             onChange={(event) => setUsername(event.target.value)}
           />
         </div>
-
-        <div className="flex flex-col">
+        <div className = "absolute text-red-500 ml-2"> {errorMsg} </div>
+        </div>
+        <div className="flex flex-col mb-2">
           <label
             htmlFor="password"
             className="mb-1 text-sm font-medium text-zinc-700"
@@ -70,11 +73,19 @@ const LoginForm = () => {
 
         <button
           type="submit"
-          className="mt-auto bg-andyblue text-white py-2 rounded-md hover:bg-andydarkblue transition-colors"
+          className="mt-auto bg-andyblue text-white py-2 rounded-md
+           hover:bg-andydarkblue transition-colors relative cursor-pointer"
         >
-          Login
+          Login 
+          
+          { isLoading &&
+          <div className="absolute top-0 right-4 h-full flex items-center animate-spin">
+            <i className="fa-solid fa-circle-notch text-sky-500 animate-spin"></i>
+          </div>
+        }
         </button>
       </form>
+      
     </div>
   );
 };

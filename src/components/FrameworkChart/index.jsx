@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import ReactFlow, {
   Background,
   Controls,
@@ -20,39 +20,42 @@ const labels = [
   "Continuous Support",
 ];
 
-// Dynamic node placement with slight randomness for interest
-const initialNodes = labels.map((label, index) => ({
-  id: String(index + 1),
-  data: { label: `Step ${index + 1}: ${label}` },
-  position: {
-    x:
-      index % 2 === 0
-        ? index * 150
-        : index * 150 + 100 + (Math.random() * 40 - 20), // zig-zag right on odd
-    y: index * 100 + (Math.random() * 80 - 40), // some vertical variation
-  },
-}));
-
-const initialEdges = labels
-  .map((_, index) => {
-    if (index < labels.length - 1) {
-      return {
-        id: `e${index + 1}-${index + 2}`,
-        source: String(index + 1),
-        target: String(index + 2),
-        style: { stroke: "#3B82F6", strokeWidth: 2 },
-        markerEnd: { type: "arrowclosed", color: "#3B82F6" },
-      };
-    }
-    return null;
-  })
-  .filter(Boolean);
-
 const FrameworkChart = () => {
+  // Memoize initial nodes and edges inside the component
+  const initialNodes = useMemo(() => {
+    return labels.map((label, index) => ({
+      id: String(index + 1),
+      data: { label: `Step ${index + 1}: ${label}` },
+      position: {
+        x:
+          index % 2 === 0
+            ? index * 150
+            : index * 150 + 100 + (Math.random() * 40 - 20), // zig-zag right on odd
+        y: index * 100 + (Math.random() * 80 - 40), // some vertical variation
+      },
+    }));
+  }, []);
+
+  const initialEdges = useMemo(() => {
+    return labels
+      .map((_, index) => {
+        if (index < labels.length - 1) {
+          return {
+            id: `e${index + 1}-${index + 2}`,
+            source: String(index + 1),
+            target: String(index + 2),
+            style: { stroke: "#3B82F6", strokeWidth: 2 },
+            markerEnd: { type: "arrowclosed", color: "#3B82F6" },
+          };
+        }
+        return null;
+      })
+      .filter(Boolean);
+  }, []);
+
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
-  
   const onConnect = (params) => {
     setEdges((eds) => addEdge(params, eds));
   };
