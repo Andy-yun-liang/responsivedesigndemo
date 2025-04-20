@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import ReactFlow, {
   Background,
   Controls,
@@ -22,15 +22,16 @@ const labels = [
 
 // Dynamic node placement with slight randomness for interest
 const initialNodes = labels.map((label, index) => ({
-    id: String(index + 1),
-    data: { label: `Step ${index + 1}: ${label}` },
-    position: {
-      x: index % 2 === 0
+  id: String(index + 1),
+  data: { label: `Step ${index + 1}: ${label}` },
+  position: {
+    x:
+      index % 2 === 0
         ? index * 150
         : index * 150 + 100 + (Math.random() * 40 - 20), // zig-zag right on odd
-      y: index * 100 + (Math.random() * 80 - 40), // some vertical variation
-    },
-  }));
+    y: index * 100 + (Math.random() * 80 - 40), // some vertical variation
+  },
+}));
 
 const initialEdges = labels
   .map((_, index) => {
@@ -39,7 +40,6 @@ const initialEdges = labels
         id: `e${index + 1}-${index + 2}`,
         source: String(index + 1),
         target: String(index + 2),
-
         style: { stroke: "#3B82F6", strokeWidth: 2 },
         markerEnd: { type: "arrowclosed", color: "#3B82F6" },
       };
@@ -52,13 +52,13 @@ const FrameworkChart = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
-  const onConnect = useCallback(
-    (params) => setEdges((eds) => addEdge(params, eds)),
-    []
-  );
+  
+  const onConnect = (params) => {
+    setEdges((eds) => addEdge(params, eds));
+  };
 
   return (
-    <div className="w-full  overflow-hidden">
+    <div className="w-full overflow-hidden">
       {/* Small screens: show image */}
       <div className="sm:hidden w-full">
         <img
