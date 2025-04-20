@@ -9,6 +9,7 @@ import MainLayout from "./layouts/MainLayout";
 import SessionContext from "Contexts/SessionContext";
 import * as userService from "dataService/sessionService";
 import { jwtDecode } from "jwt-decode";
+import ContentManagement from "pages/ContentManagement";
 
 const App = () => {
   const [sessionToken, setSessionToken] = useState(() => {
@@ -30,7 +31,7 @@ const App = () => {
       value={{
         signIn,
         signOut,
-        username: sessionToken ? jwtDecode(sessionToken).username : null,
+        username: sessionToken ? jwtDecode(sessionToken).username : null
       }}
     >
       <BrowserRouter>
@@ -42,6 +43,7 @@ const App = () => {
             <Route path="/contact" element={<Contact />} />
           </Route>
           <Route path="/admin-portal" element={<Admin />} />
+          <Route path="/content-management-system" element={<ContentManagement/>} />
         </Routes>
       </BrowserRouter>
     </SessionContext.Provider>
