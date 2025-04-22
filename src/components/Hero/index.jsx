@@ -1,4 +1,5 @@
 import hero from "assets/heroImage.jpg";
+import CallToAction from "./CallToAction";
 
 const Hero = () => {
   return (
@@ -30,9 +31,7 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-col items-end pr-10 pt-4">
-              <button className="rounded-lg bg-andyblue py-7 px-5 my-3 hover:bg-andydarkblue">
-                <p className="text-md text-white">I Want to See If Your Services Fit — Take the Quiz</p>
-              </button>
+              <CallToAction/>
               <p className="text-sm font-bold px-2">
                 We respect your privacy and won't share your data
               </p>
